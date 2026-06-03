@@ -558,6 +558,232 @@ h3 {
   }
 }
 
+
+@media (max-width: 639px) {
+  body {
+    background:
+      radial-gradient(circle at 50% -8%, rgba(85, 11, 20, 0.92), transparent 24rem),
+      radial-gradient(circle at 86% 34%, rgba(221, 200, 179, 0.14), transparent 18rem),
+      linear-gradient(180deg, #060505 0%, var(--black) 48%, #150306 100%);
+  }
+
+  .site-noise {
+    opacity: 0.17;
+  }
+
+  .ambient {
+    width: 13rem;
+    height: 13rem;
+    filter: blur(58px);
+  }
+
+  .top-marquee {
+    border-bottom-color: rgba(221, 200, 179, 0.14);
+  }
+
+  .marquee-track span {
+    padding: 0.72rem 1.1rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.19em;
+  }
+
+  .section-shell {
+    width: min(100% - 1.15rem, 28rem);
+  }
+
+  .hero {
+    position: relative;
+    gap: 0;
+    min-height: calc(100svh - 36px);
+    overflow: hidden;
+    padding: 13rem 0 3.6rem;
+  }
+
+  .hero-visual {
+    position: absolute;
+    inset: 0.8rem 0 auto;
+  }
+
+  .portrait-frame {
+    min-height: min(68svh, 30rem);
+    border-radius: 1.55rem;
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.52);
+  }
+
+  .portrait-frame::before {
+    inset: 0.65rem;
+    border-radius: 1.15rem;
+  }
+
+  .portrait-frame::after {
+    background:
+      linear-gradient(180deg, rgba(13, 13, 13, 0.03) 0%, rgba(13, 13, 13, 0.16) 34%, rgba(13, 13, 13, 0.78) 63%, rgba(42, 7, 12, 0.96) 100%),
+      radial-gradient(circle at 50% 82%, rgba(221, 200, 179, 0.16), transparent 14rem);
+  }
+
+  .portrait-frame img {
+    min-height: min(68svh, 30rem);
+    object-position: center 12%;
+  }
+
+  .portrait-glass {
+    display: none;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    padding: 0 0.35rem;
+  }
+
+  .eyebrow,
+  .section-kicker {
+    margin-bottom: 0.78rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hero .eyebrow {
+    display: inline-flex;
+    max-width: 100%;
+    margin-bottom: 0.72rem;
+    border: 1px solid rgba(221, 200, 179, 0.2);
+    border-radius: 999px;
+    padding: 0.48rem 0.7rem;
+    background: rgba(13, 13, 13, 0.48);
+    backdrop-filter: blur(14px);
+    font-size: 0.58rem;
+    line-height: 1.2;
+  }
+
+  h1 {
+    max-width: 9.6ch;
+    margin-bottom: 1rem;
+    font-size: clamp(3rem, 14.6vw, 4.55rem);
+    letter-spacing: 0.025em;
+    line-height: 0.88;
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-size: clamp(2.55rem, 11.6vw, 3.9rem);
+    letter-spacing: 0.028em;
+    line-height: 0.94;
+    text-wrap: balance;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .hero-subtitle {
+    max-width: 24rem;
+    margin-bottom: 1.35rem;
+    color: rgba(248, 248, 247, 0.82);
+    font-size: 1.02rem;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    gap: 0.85rem;
+  }
+
+  .premium-button {
+    min-height: 4.15rem;
+    padding: 1.12rem 1.05rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.085em;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.85),
+      inset 0 -10px 22px rgba(85, 11, 20, 0.18),
+      0 18px 38px rgba(85, 11, 20, 0.42),
+      0 6px 0 rgba(85, 11, 20, 0.72);
+  }
+
+  .microcopy {
+    display: block;
+    max-width: 19rem;
+    margin: 0 auto;
+    color: rgba(221, 200, 179, 0.78);
+    font-size: 0.78rem;
+    line-height: 1.45;
+    text-align: center;
+  }
+
+  .split-section,
+  #presale,
+  .program-section,
+  .final-cta {
+    padding: 4rem 0;
+  }
+
+  .section-content h2,
+  .program-panel h2,
+  .final-cta h2 {
+    max-width: 9.5ch;
+  }
+
+  .card-grid {
+    gap: 0.9rem;
+  }
+
+  .lux-card {
+    border-radius: 1.35rem;
+    padding: 1.15rem;
+  }
+
+  .lux-card p,
+  .program-panel p,
+  .final-cta p {
+    line-height: 1.58;
+  }
+
+  .benefit-row {
+    gap: 0.35rem;
+    padding: 1.35rem 0;
+  }
+
+  .benefit-row p {
+    font-size: clamp(1.18rem, 5.4vw, 1.55rem);
+    line-height: 1.28;
+  }
+
+  .program-panel,
+  .final-cta {
+    border-radius: 1.35rem;
+    padding: 1.3rem;
+  }
+
+  .program-stats {
+    gap: 1rem;
+  }
+
+  .final-cta {
+    margin-bottom: 3rem;
+  }
+
+  .waitlist-dialog {
+    width: min(100% - 1rem, 28rem);
+    max-height: calc(100svh - 1rem);
+    border-radius: 1.35rem;
+  }
+
+  .dialog-content {
+    padding: 1.25rem;
+  }
+
+  .waitlist-form {
+    gap: 0.82rem;
+  }
+
+  .waitlist-form input,
+  .waitlist-form textarea {
+    border-radius: 0.9rem;
+    padding: 0.92rem 0.95rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
