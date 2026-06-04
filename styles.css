@@ -1464,7 +1464,9 @@ body.is-loaded .portrait-frame img {
 
   .hero .eyebrow {
     order: 1;
-    justify-self: start;
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
     max-width: 100%;
     margin: 0 0 0.15rem;
     border: 1px solid rgba(221, 200, 179, 0.2);
@@ -1474,6 +1476,7 @@ body.is-loaded .portrait-frame img {
     backdrop-filter: blur(14px);
     font-size: 0.62rem;
     line-height: 1.2;
+    text-align: center;
     overflow-wrap: anywhere;
   }
 
