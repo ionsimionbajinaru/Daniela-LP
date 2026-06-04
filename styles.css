@@ -544,13 +544,16 @@ body.is-loaded .portrait-frame img {
 }
 
 .section-content h2 {
-  max-width: 12ch;
+  max-width: min(100%, 24ch);
   margin-bottom: 2rem;
 }
 
 .center-heading {
-  max-width: 47rem;
+  max-width: min(100%, 47rem);
+  margin-right: auto;
   margin-bottom: 2rem;
+  margin-left: auto;
+  text-align: center;
 }
 
 .social-proof .center-heading {
@@ -560,9 +563,10 @@ body.is-loaded .portrait-frame img {
 }
 
 .social-proof h2 {
-  max-width: 12ch;
+  max-width: min(100%, 24ch);
   margin-right: auto;
   margin-left: auto;
+  text-align: center;
 }
 
 .benefit-list {
@@ -591,7 +595,7 @@ body.is-loaded .portrait-frame img {
 
 .program-panel h2,
 .final-cta h2 {
-  max-width: 10ch;
+  max-width: min(100%, 22ch);
 }
 
 .program-panel > p {
@@ -1230,7 +1234,15 @@ body.is-loaded .portrait-frame img {
   .program-panel h2,
   .social-proof h2,
   .final-cta h2 {
-    max-width: 9.5ch;
+    max-width: min(100%, 18ch);
+  }
+
+  .center-heading,
+  .social-proof h2,
+  .final-cta h2 {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
   }
 
   .card-grid,
@@ -1527,7 +1539,7 @@ body.is-loaded .portrait-frame img {
   .final-cta h2,
   .center-heading,
   .center-heading h2 {
-    max-width: min(100%, 11ch);
+    max-width: min(100%, 22ch);
   }
 
   .social-proof .center-heading,
@@ -1536,6 +1548,7 @@ body.is-loaded .portrait-frame img {
   .final-cta p {
     margin-right: auto;
     margin-left: auto;
+    text-align: center;
   }
 
   .hero-subtitle {
@@ -1628,5 +1641,14 @@ body.is-loaded .portrait-frame img {
 
   .site-footer {
     padding-bottom: calc(7.2rem + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 639px) {
+  .section-content h2,
+  .program-panel h2,
+  .social-proof h2,
+  .final-cta h2 {
+    max-width: min(100%, 18ch);
   }
 }
