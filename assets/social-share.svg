@@ -1,0 +1,15 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0D0D0D"/>
+  <circle cx="158" cy="110" r="288" fill="#550B14" opacity="0.74"/>
+  <circle cx="1090" cy="486" r="260" fill="#DDC8B3" opacity="0.11"/>
+  <circle cx="566" cy="-62" r="360" fill="#2A070C" opacity="0.82"/>
+  <rect x="42" y="42" width="1116" height="546" rx="42" stroke="#DDC8B3" stroke-opacity="0.52" stroke-width="4"/>
+  <path d="M766 548C823 505 858 442 858 350C858 245 818 156 766 92C816 72 874 78 933 111C1016 157 1066 251 1062 355C1058 466 992 541 892 559C845 567 802 563 766 548Z" fill="#DDC8B3" opacity="0.12"/>
+  <path d="M852 315C883 287 899 250 895 212C891 176 870 147 840 136C814 151 796 182 794 218C792 257 814 293 852 315Z" fill="#DDC8B3" opacity="0.18"/>
+  <text x="100" y="172" fill="#DDC8B3" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="7">WAITLIST PRIVAT · 2026</text>
+  <text x="96" y="286" fill="#F8F8F7" font-family="Arial Narrow, Impact, sans-serif" font-size="78" font-weight="900" letter-spacing="3">MENTORSHIP</text>
+  <text x="96" y="370" fill="#F8F8F7" font-family="Arial Narrow, Impact, sans-serif" font-size="78" font-weight="900" letter-spacing="3">&amp; LANSĂRI</text>
+  <text x="100" y="448" fill="#DDC8B3" font-family="Georgia, 'Times New Roman', serif" font-size="31">Strategie, poziționare și prezență magnetică.</text>
+  <path d="M100 496H510" stroke="#DDC8B3" stroke-opacity="0.72" stroke-width="3"/>
+  <path d="M100 528H362" stroke="#9F8E87" stroke-opacity="0.7" stroke-width="3"/>
+</svg>
