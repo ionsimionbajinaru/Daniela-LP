@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">Portret editorial premium al mentorului</title>
+  <desc id="desc">Ilustrație locală de brand în tonuri burgundy, negru și champagne pentru zona hero.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#130b0d" />
+      <stop offset="0.45" stop-color="#2a070c" />
+      <stop offset="1" stop-color="#0d0d0d" />
+    </linearGradient>
+    <radialGradient id="halo" cx="54%" cy="20%" r="62%">
+      <stop offset="0" stop-color="#ddc8b3" stop-opacity="0.62" />
+      <stop offset="0.28" stop-color="#b76e79" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#0d0d0d" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="skin" cx="50%" cy="38%" r="47%">
+      <stop offset="0" stop-color="#f3d8c7" />
+      <stop offset="0.74" stop-color="#b98578" />
+      <stop offset="1" stop-color="#5f2c2c" />
+    </radialGradient>
+    <linearGradient id="dress" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#13090b" />
+      <stop offset="0.56" stop-color="#4d1118" />
+      <stop offset="1" stop-color="#050505" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8b6b46" stop-opacity="0" />
+      <stop offset="0.5" stop-color="#f0d3a8" stop-opacity="0.76" />
+      <stop offset="1" stop-color="#8b6b46" stop-opacity="0" />
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18" />
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="30" stdDeviation="28" flood-color="#000" flood-opacity="0.45" />
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.92" numOctaves="2" stitchTiles="stitch" />
+      <feColorMatrix type="saturate" values="0" />
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.08" />
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#bg)" />
+  <rect width="1200" height="1500" fill="url(#halo)" />
+  <circle cx="864" cy="240" r="408" fill="#ddc8b3" opacity="0.1" filter="url(#soft)" />
+  <circle cx="240" cy="1020" r="504" fill="#7a1d2a" opacity="0.22" filter="url(#soft)" />
+  <g opacity="0.42" fill="none" stroke="url(#gold)" stroke-width="2">
+    <path d="M108 270C396 120 804 120 1092 270" />
+    <path d="M144 1245C432 1080 780 1080 1056 1245" />
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M216 1440C288 1080 408 900 600 900C804 900 924 1080 1008 1440Z" fill="url(#dress)" />
+    <path d="M408 975C468 1155 732 1155 792 975C708 1050 504 1050 408 975Z" fill="#d7b79b" opacity="0.78" />
+    <path d="M360 420C360 210 492 105 636 120C816 150 900 375 840 630C768 915 444 930 372 645C336 540 336 465 360 420Z" fill="#180d0f" />
+    <ellipse cx="612" cy="510" rx="192" ry="285" fill="url(#skin)" />
+    <path d="M432 435C516 240 720 210 816 450C696 315 540 330 432 435Z" fill="#241113" opacity="0.82" />
+    <path d="M504 615C576 690 672 690 732 615" stroke="#5f2c2c" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.45" />
+  </g>
+  <rect x="72" y="68" width="1056" height="1365" rx="66" fill="none" stroke="#ddc8b3" stroke-opacity="0.18" stroke-width="2" />
+  <rect width="1200" height="1500" filter="url(#grain)" opacity="0.62" />
+</svg>

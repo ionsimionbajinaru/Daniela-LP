@@ -54,10 +54,21 @@
 
         <div class="hero-visual reveal" data-parallax="0.08" aria-label="Portret cinematic al mentorului">
           <div class="portrait-frame">
-            <img
-              src="https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format&fit=crop&w=1200&q=82"
-              alt="Femeie mentor într-un portret cinematic premium"
-            />
+            <picture>
+              <source
+                type="image/svg+xml"
+                srcset="assets/hero-portrait-mobile.svg 720w, assets/hero-portrait.svg 1200w"
+                sizes="(max-width: 720px) 100vw, (max-width: 1080px) 44vw, 520px"
+              />
+              <img
+                src="assets/hero-portrait.svg"
+                width="1200"
+                height="1500"
+                sizes="(max-width: 720px) 100vw, (max-width: 1080px) 44vw, 520px"
+                fetchpriority="high"
+                alt="Portret editorial premium al mentorului pentru programul de lansări"
+              />
+            </picture>
             <div class="portrait-glass">
               <span>Private cohort</span>
               <strong>Strategie · poziționare · lansare</strong>
