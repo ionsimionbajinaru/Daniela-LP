@@ -1,6 +1,7 @@
 const waitlistDialog = document.querySelector('#waitlistDialog');
 const waitlistForm = document.querySelector('#waitlistForm');
 const formNote = document.querySelector('#formNote');
+let fallbackFormNote = null;
 const openButtons = document.querySelectorAll('[data-open-waitlist]');
 const closeButton = document.querySelector('[data-close-waitlist]');
 const revealItems = document.querySelectorAll('.reveal');
@@ -178,15 +179,41 @@ waitlistDialog?.addEventListener('close', () => {
   document.body.classList.remove('dialog-open');
 });
 
+const showFormFeedback = (message, status = 'info') => {
+  const note = formNote || fallbackFormNote || document.createElement('p');
+
+  if (!formNote && !fallbackFormNote) {
+    fallbackFormNote = note;
+    note.className = 'form-note';
+    waitlistForm?.appendChild(note);
+  }
+
+  note.setAttribute('aria-live', status === 'error' ? 'assertive' : 'polite');
+  note.setAttribute('role', status === 'error' ? 'alert' : 'status');
+  note.textContent = message;
+  note.classList.toggle('success', status === 'success');
+};
+
 waitlistForm?.addEventListener('submit', (event) => {
   event.preventDefault();
 
   const formData = new FormData(waitlistForm);
   const entry = Object.fromEntries(formData.entries());
-  localStorage.setItem('premiumWaitlistEntry', JSON.stringify(entry));
 
-  formNote.textContent = 'Înscriere primită. Te redirecționăm către Telegram pentru următorul pas.';
-  formNote.classList.add('success');
+  try {
+    localStorage.setItem('premiumWaitlistEntry', JSON.stringify(entry));
+  } catch (error) {
+    showFormFeedback(
+      'Nu am putut salva înscrierea în browser. Verifică setările de confidențialitate și încearcă din nou.',
+      'error'
+    );
+    return;
+  }
+
+  showFormFeedback(
+    'Înscriere primită. Te redirecționăm către Telegram pentru următorul pas.',
+    'success'
+  );
   waitlistForm.reset();
 
   window.setTimeout(() => {
