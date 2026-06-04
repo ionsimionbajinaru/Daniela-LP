@@ -448,6 +448,7 @@ h3 {
 
 .waitlist-dialog {
   width: min(92vw, 34rem);
+  max-height: calc(100svh - 2rem);
   border: 1px solid rgba(221, 200, 179, 0.28);
   border-radius: 1.8rem;
   padding: 0;
@@ -1137,7 +1138,11 @@ body.is-loaded .portrait-frame img {
 }
 
 .waitlist-dialog {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: rgba(221, 200, 179, 0.45) rgba(248, 248, 247, 0.05);
+  scrollbar-width: thin;
   transform: translateY(22px) scale(0.98);
   opacity: 0;
   transition:
@@ -1150,6 +1155,19 @@ body.is-loaded .portrait-frame img {
 .waitlist-dialog[open] {
   opacity: 1;
   transform: translateY(0) scale(1);
+}
+
+.waitlist-dialog::-webkit-scrollbar {
+  width: 0.45rem;
+}
+
+.waitlist-dialog::-webkit-scrollbar-track {
+  background: rgba(248, 248, 247, 0.04);
+}
+
+.waitlist-dialog::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(221, 200, 179, 0.42);
 }
 
 .waitlist-dialog::backdrop {
