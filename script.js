@@ -11,6 +11,11 @@ const stickyMobileCta = document.querySelector('.sticky-mobile-cta');
 const parallaxItems = document.querySelectorAll('[data-parallax]');
 const tiltCards = document.querySelectorAll('.lux-card, .program-panel, .final-cta');
 const telegramRedirectUrl = waitlistDialog?.dataset.telegramUrl || 'https://t.me/daniela';
+const reducedMotionQuery = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+const hasParallaxItems = parallaxItems.length > 0;
+let scrollFrameId = null;
+
+const prefersReducedMotion = () => reducedMotionQuery?.matches || false;
 
 const splitHeroTitle = () => {
   if (!heroTitle) return;
@@ -58,12 +63,29 @@ const updateScrollProgress = () => {
 };
 
 const updateParallax = () => {
+  if (!hasParallaxItems || prefersReducedMotion()) return;
+
   parallaxItems.forEach((item) => {
     const speed = Number(item.dataset.parallax) || 0.05;
     const rect = item.getBoundingClientRect();
     const offset = (window.innerHeight / 2 - rect.top - rect.height / 2) * speed;
     item.style.setProperty('--parallax-y', `${offset.toFixed(2)}px`);
   });
+};
+
+const runScheduledScrollUpdates = () => {
+  scrollFrameId = null;
+  updateScrollProgress();
+
+  if (!prefersReducedMotion()) {
+    updateParallax();
+  }
+};
+
+const scheduleScrollUpdates = () => {
+  if (scrollFrameId !== null) return;
+
+  scrollFrameId = window.requestAnimationFrame(runScheduledScrollUpdates);
 };
 
 const updateHeroSpotlight = (event) => {
@@ -85,7 +107,7 @@ const resetMagneticButton = (button) => {
 
 const addMagneticButton = (button) => {
   button.addEventListener('mousemove', (event) => {
-    if (window.innerWidth < 860) return;
+    if (prefersReducedMotion() || window.innerWidth < 860) return;
 
     const rect = button.getBoundingClientRect();
     const relX = event.clientX - rect.left - rect.width / 2;
@@ -101,7 +123,7 @@ const addMagneticButton = (button) => {
 
 const addTiltCard = (card) => {
   card.addEventListener('mousemove', (event) => {
-    if (window.innerWidth < 860) return;
+    if (prefersReducedMotion() || window.innerWidth < 860) return;
 
     const rect = card.getBoundingClientRect();
     const x = event.clientX - rect.left;
@@ -127,10 +149,15 @@ window.addEventListener('load', () => {
 
 openButtons.forEach((button) => {
   button.addEventListener('click', openDialog);
-  addMagneticButton(button);
+
+  if (!prefersReducedMotion()) {
+    addMagneticButton(button);
+  }
 });
 
-tiltCards.forEach(addTiltCard);
+if (!prefersReducedMotion()) {
+  tiltCards.forEach(addTiltCard);
+}
 
 closeButton?.addEventListener('click', closeDialog);
 
@@ -184,15 +211,7 @@ if ('IntersectionObserver' in window) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
 
-updateScrollProgress();
-updateParallax();
+scheduleScrollUpdates();
 
-window.addEventListener('scroll', () => {
-  updateScrollProgress();
-  updateParallax();
-}, { passive: true });
-
-window.addEventListener('resize', () => {
-  updateScrollProgress();
-  updateParallax();
-});
+window.addEventListener('scroll', scheduleScrollUpdates, { passive: true });
+window.addEventListener('resize', scheduleScrollUpdates);
