@@ -163,6 +163,7 @@ h3 {
 .final-cta p,
 .program-panel p,
 .lux-card p,
+.testimonial-card p,
 .dialog-intro {
   color: rgba(248, 248, 247, 0.72);
   line-height: 1.7;
@@ -301,6 +302,7 @@ h3 {
 .split-section,
 #presale,
 .program-section,
+.social-proof,
 .final-cta {
   padding: 4.8rem 0;
   border-top: 1px solid var(--line);
@@ -318,6 +320,7 @@ h3 {
 
 .lux-card,
 .program-panel,
+.testimonial-card,
 .final-cta {
   border: 1px solid var(--line);
   border-radius: 1.7rem;
@@ -325,8 +328,43 @@ h3 {
   box-shadow: 0 18px 70px rgba(0, 0, 0, 0.22);
 }
 
-.lux-card {
+.lux-card,
+.testimonial-card {
   padding: 1.25rem;
+}
+
+.social-proof .center-heading {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.social-proof h2 {
+  max-width: 12ch;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.testimonial-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.testimonial-card h3 {
+  margin-bottom: 0.75rem;
+}
+
+.testimonial-card span {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--cream);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.testimonial-card p {
+  margin-bottom: 0;
 }
 
 .lux-card span,
@@ -725,27 +763,32 @@ h3 {
   .split-section,
   #presale,
   .program-section,
+  .social-proof,
   .final-cta {
     padding: 4rem 0;
   }
 
   .section-content h2,
   .program-panel h2,
+  .social-proof h2,
   .final-cta h2 {
     max-width: 9.5ch;
   }
 
-  .card-grid {
+  .card-grid,
+  .testimonial-grid {
     gap: 0.9rem;
   }
 
-  .lux-card {
+  .lux-card,
+  .testimonial-card {
     border-radius: 1.35rem;
     padding: 1.15rem;
   }
 
   .lux-card p,
   .program-panel p,
+  .testimonial-card p,
   .final-cta p {
     line-height: 1.58;
   }
@@ -873,7 +916,8 @@ h3 {
     gap: 2rem;
   }
 
-  .card-grid.three {
+  .card-grid.three,
+  .testimonial-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -1058,6 +1102,7 @@ body.is-loaded .portrait-frame img {
 
 .lux-card,
 .program-panel,
+.testimonial-card,
 .final-cta {
   --tilt-x: 0deg;
   --tilt-y: 0deg;
@@ -1070,6 +1115,7 @@ body.is-loaded .portrait-frame img {
 
 .lux-card::after,
 .program-panel::after,
+.testimonial-card::after,
 .final-cta::after {
   content: "";
   position: absolute;
@@ -1082,6 +1128,7 @@ body.is-loaded .portrait-frame img {
 
 .lux-card:hover,
 .program-panel:hover,
+.testimonial-card:hover,
 .final-cta:hover {
   border-color: rgba(221, 200, 179, 0.34);
   box-shadow: 0 22px 80px rgba(0, 0, 0, 0.34);
@@ -1089,6 +1136,7 @@ body.is-loaded .portrait-frame img {
 
 .lux-card:hover::after,
 .program-panel:hover::after,
+.testimonial-card:hover::after,
 .final-cta:hover::after {
   opacity: 1;
 }
