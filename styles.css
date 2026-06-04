@@ -251,10 +251,15 @@ h3 {
   background: linear-gradient(180deg, transparent 35%, rgba(13, 13, 13, 0.28), rgba(42, 7, 12, 0.86));
 }
 
+.portrait-frame picture,
 .portrait-frame img {
+  display: block;
   width: 100%;
   height: 100%;
   min-height: 28rem;
+}
+
+.portrait-frame img {
   object-fit: cover;
   object-position: center top;
   filter: saturate(0.78) contrast(1.1) brightness(0.82);
@@ -622,8 +627,12 @@ h3 {
       radial-gradient(circle at 50% 82%, rgba(221, 200, 179, 0.16), transparent 14rem);
   }
 
+  .portrait-frame picture,
   .portrait-frame img {
     min-height: min(68svh, 30rem);
+  }
+
+  .portrait-frame img {
     object-position: center 12%;
   }
 
@@ -853,6 +862,7 @@ h3 {
   }
 
   .portrait-frame,
+  .portrait-frame picture,
   .portrait-frame img {
     min-height: 42rem;
   }
@@ -1290,6 +1300,7 @@ body.is-loaded .portrait-frame img {
     min-height: min(70svh, 31rem);
   }
 
+  .portrait-frame picture,
   .portrait-frame img {
     min-height: min(70svh, 31rem);
   }
