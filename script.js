@@ -10,7 +10,7 @@ const hero = document.querySelector('.hero');
 const heroTitle = document.querySelector('[data-animate-title]');
 const stickyMobileCta = document.querySelector('.sticky-mobile-cta');
 const parallaxItems = document.querySelectorAll('[data-parallax]');
-const tiltCards = document.querySelectorAll('.lux-card, .program-panel, .final-cta');
+const tiltCards = document.querySelectorAll('.lux-card, .program-panel, .final-cta, .transform-card, .results-group');
 const telegramRedirectUrl = waitlistDialog?.dataset.telegramUrl || 'https://t.me/daniela';
 const reducedMotionQuery = window.matchMedia?.('(prefers-reduced-motion: reduce)');
 const hasParallaxItems = parallaxItems.length > 0;
@@ -201,7 +201,7 @@ waitlistForm?.addEventListener('submit', (event) => {
   const entry = Object.fromEntries(formData.entries());
 
   try {
-    localStorage.setItem('premiumWaitlistEntry', JSON.stringify(entry));
+    localStorage.setItem('quantumWaitlistEntry', JSON.stringify(entry));
   } catch (error) {
     showFormFeedback(
       'Nu am putut salva înscrierea în browser. Verifică setările de confidențialitate și încearcă din nou.',
