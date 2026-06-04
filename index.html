@@ -244,7 +244,7 @@
       <section class="section-shell final-cta reveal line-reveal" id="waitlist">
         <p class="eyebrow">Formular waiting room</p>
         <h2>Completează formularul pentru a ajunge în waiting room.</h2>
-        <p>După trimitere, păstrăm logica de redirect către Telegram pentru următorul pas. Codul este pregătit pentru conectare ulterioară la Google Sheet, email sau automatizare Telegram.</p>
+        <p>După trimitere, formularul trimite datele către endpoint-ul configurat și apoi te redirecționează către Telegram pentru următorul pas.</p>
         <button class="premium-button large" data-open-waitlist>
           Înregistrează-te aici
         </button>
@@ -266,10 +266,10 @@
         <p class="eyebrow">Waiting room privat</p>
         <h2 id="dialogTitle">QUANTUM — completează formularul pentru a ajunge în waiting room</h2>
         <p class="dialog-intro">Completează datele de mai jos. După înscriere, vei fi redirecționată către Telegram pentru următorul pas.</p>
-        <form class="waitlist-form" id="waitlistForm">
+        <form class="waitlist-form" id="waitlistForm" data-endpoint-url="">
           <label>
             Numele
-            <input type="text" name="name" placeholder="Numele tău" autocomplete="name" required />
+            <input type="text" name="nume" placeholder="Numele tău" autocomplete="name" required />
           </label>
           <label>
             Adresa de email
@@ -277,7 +277,7 @@
           </label>
           <label>
             Număr de telefon
-            <input type="tel" name="phone" placeholder="+40 700 000 000" autocomplete="tel" required />
+            <input type="tel" name="telefon" placeholder="+40 700 000 000" autocomplete="tel" required />
           </label>
           <label>
             Username pe Instagram
@@ -285,11 +285,11 @@
           </label>
           <label>
             Care ar fi rezultatul ideal după QUANTUM?
-            <textarea name="idealResult" rows="4" placeholder="Scrie pe scurt ce ai vrea să obții..." required></textarea>
+            <textarea name="rezultatIdealQuantum" rows="4" placeholder="Scrie pe scurt ce ai vrea să obții..." required></textarea>
           </label>
           <label>
             Apreciază nivelul tău de pregătire pentru a deveni elev în mentoratul QUANTUM
-            <select name="readiness" required>
+            <select name="nivelPregatire" required>
               <option value="" selected disabled>Alege varianta potrivită</option>
               <option>Sunt pregătit(ă) să achit acum</option>
               <option>Vreau, dar mă gândesc, am unele întrebări</option>
@@ -297,7 +297,7 @@
             </select>
           </label>
           <button class="premium-button" type="submit">Trimite înscrierea</button>
-          <p class="form-note" id="formNote" aria-live="polite">Momentan formularul salvează local datele și redirecționează către Telegram. Conectarea la Google Sheet / email / Telegram poate fi adăugată ulterior aici.</p>
+          <p class="form-note" id="formNote" aria-live="polite">Formularul este pregătit pentru Google Sheet / webhook. Pune URL-ul în data-endpoint-url pe formular sau în GOOGLE_SHEETS_ENDPOINT_URL din script.js.</p>
         </form>
       </div>
     </dialog>

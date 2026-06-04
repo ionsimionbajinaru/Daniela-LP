@@ -12,6 +12,64 @@ const stickyMobileCta = document.querySelector('.sticky-mobile-cta');
 const parallaxItems = document.querySelectorAll('[data-parallax]');
 const tiltCards = document.querySelectorAll('.lux-card, .program-panel, .final-cta, .transform-card, .results-group');
 const telegramRedirectUrl = waitlistDialog?.dataset.telegramUrl || 'https://t.me/daniela';
+// Pune aici URL-ul de Google Apps Script / webhook dacă nu vrei să îl setezi în HTML.
+// Exemplu Google Apps Script Web App: https://script.google.com/macros/s/AKfycb.../exec
+const GOOGLE_SHEETS_ENDPOINT_URL = '';
+const waitlistEndpointUrl =
+  waitlistForm?.dataset.endpointUrl?.trim() || GOOGLE_SHEETS_ENDPOINT_URL.trim();
+const waitlistEndpointMode = waitlistForm?.dataset.endpointMode || 'no-cors';
+const submitButton = waitlistForm?.querySelector('button[type="submit"]');
+const defaultSubmitButtonText = submitButton?.textContent || 'Trimite înscrierea';
+const telegramRedirectDelay = 1200;
+
+const normalizeWaitlistEntry = (formData) => ({
+  nume: formData.get('nume')?.toString().trim() || '',
+  email: formData.get('email')?.toString().trim() || '',
+  telefon: formData.get('telefon')?.toString().trim() || '',
+  instagram: formData.get('instagram')?.toString().trim() || '',
+  rezultatIdealQuantum: formData.get('rezultatIdealQuantum')?.toString().trim() || '',
+  nivelPregatire: formData.get('nivelPregatire')?.toString().trim() || '',
+  sursa: 'Landing Page QUANTUM',
+  trimisLa: new Date().toISOString(),
+});
+
+const saveLocalBackup = (entry) => {
+  try {
+    localStorage.setItem('quantumWaitlistEntry', JSON.stringify(entry));
+  } catch (error) {
+    // Backup-ul local este opțional; trimiterea către endpoint rămâne fluxul principal.
+  }
+};
+
+const setFormSubmitting = (isSubmitting) => {
+  if (!submitButton) return;
+
+  submitButton.disabled = isSubmitting;
+  submitButton.textContent = isSubmitting ? 'Se trimite...' : defaultSubmitButtonText;
+};
+
+const sendWaitlistEntry = async (entry) => {
+  if (!waitlistEndpointUrl) {
+    throw new Error(
+      'Endpoint lipsă: setează URL-ul de Google Apps Script / webhook în data-endpoint-url sau în GOOGLE_SHEETS_ENDPOINT_URL.'
+    );
+  }
+
+  const response = await fetch(waitlistEndpointUrl, {
+    method: 'POST',
+    mode: waitlistEndpointMode,
+    headers: {
+      'Content-Type': 'text/plain;charset=utf-8',
+    },
+    body: JSON.stringify(entry),
+    keepalive: true,
+  });
+
+  if (waitlistEndpointMode !== 'no-cors' && !response.ok) {
+    throw new Error(`Endpoint-ul a răspuns cu status ${response.status}.`);
+  }
+};
+
 const reducedMotionQuery = window.matchMedia?.('(prefers-reduced-motion: reduce)');
 const hasParallaxItems = parallaxItems.length > 0;
 let scrollFrameId = null;
@@ -192,33 +250,48 @@ const showFormFeedback = (message, status = 'info') => {
   note.setAttribute('role', status === 'error' ? 'alert' : 'status');
   note.textContent = message;
   note.classList.toggle('success', status === 'success');
+  note.classList.toggle('error', status === 'error');
 };
 
-waitlistForm?.addEventListener('submit', (event) => {
+waitlistForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
 
-  const formData = new FormData(waitlistForm);
-  const entry = Object.fromEntries(formData.entries());
-
-  try {
-    localStorage.setItem('quantumWaitlistEntry', JSON.stringify(entry));
-  } catch (error) {
-    showFormFeedback(
-      'Nu am putut salva înscrierea în browser. Verifică setările de confidențialitate și încearcă din nou.',
-      'error'
-    );
+  if (!waitlistForm.checkValidity()) {
+    waitlistForm.reportValidity();
     return;
   }
 
-  showFormFeedback(
-    'Înscriere primită. Te redirecționăm către Telegram pentru următorul pas.',
-    'success'
-  );
-  waitlistForm.reset();
+  const formData = new FormData(waitlistForm);
+  const entry = normalizeWaitlistEntry(formData);
 
-  window.setTimeout(() => {
-    window.location.href = telegramRedirectUrl;
-  }, 1200);
+  setFormSubmitting(true);
+  showFormFeedback('Trimitem înscrierea către lista QUANTUM...', 'info');
+  let shouldUnlockForm = true;
+
+  try {
+    await sendWaitlistEntry(entry);
+    saveLocalBackup(entry);
+    shouldUnlockForm = false;
+
+    showFormFeedback(
+      'Înscriere primită cu succes. Te redirecționăm către Telegram pentru următorul pas.',
+      'success'
+    );
+    waitlistForm.reset();
+
+    window.setTimeout(() => {
+      window.location.href = telegramRedirectUrl;
+    }, telegramRedirectDelay);
+  } catch (error) {
+    showFormFeedback(
+      `${error.message} Datele au rămas în formular. Te rugăm să încerci din nou sau să ne scrii direct pe Telegram.`,
+      'error'
+    );
+  } finally {
+    if (shouldUnlockForm) {
+      setFormSubmitting(false);
+    }
+  }
 });
 
 if ('IntersectionObserver' in window) {

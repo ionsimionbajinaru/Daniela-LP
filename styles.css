@@ -913,12 +913,24 @@ body.is-loaded .portrait-frame img {
   line-height: 1.5;
 }
 
-.form-note.success {
+.form-note.success,
+.form-note.error {
   border: 1px solid rgba(221, 200, 179, 0.22);
   border-radius: 0.9rem;
   padding: 0.78rem 0.9rem;
   color: var(--cream);
   background: rgba(221, 200, 179, 0.08);
+}
+
+.form-note.error {
+  border-color: rgba(255, 143, 143, 0.34);
+  color: #ffd8d8;
+  background: rgba(255, 143, 143, 0.08);
+}
+
+.waitlist-form .premium-button:disabled {
+  cursor: wait;
+  opacity: 0.64;
 }
 
 /* footer */
