@@ -2743,3 +2743,69 @@ select {
     min-height: clamp(20rem, 82vw, 25rem);
   }
 }
+
+/* FIX HERO PORTRAIT BLEED */
+.portrait-frame {
+  position: relative;
+  height: clamp(34rem, 72vh, 42rem);
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 2.2rem;
+  isolation: isolate;
+}
+
+.portrait-frame picture,
+.portrait-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.portrait-frame img {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.portrait-frame::before {
+  z-index: 2;
+}
+
+.portrait-frame::after {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.portrait-glass {
+  z-index: 3;
+  max-width: calc(100% - 2.5rem);
+  overflow: hidden;
+}
+
+/* FIX PRICE BADGES IN NARROW STUDENT CARDS */
+.student-card-copy {
+  align-items: start;
+}
+
+.student-amount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  width: auto;
+  min-width: 6.1rem;
+  min-height: 2.35rem;
+  border-radius: 999px;
+  padding: 0.5rem 0.95rem;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* Optional: mai echilibrat pe cardurile înguste desktop */
+@media (min-width: 860px) {
+  .student-result-card:not(:nth-child(1)):not(:nth-child(6)) .student-amount {
+    min-width: 5.8rem;
+    font-size: 0.95rem;
+  }
+}
