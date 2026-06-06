@@ -1802,7 +1802,6 @@ h2 {
 }
 
 .photo-placeholder.small::after {
-  content: "Photo placeholder";
   position: absolute;
   top: 1rem;
   left: 1rem;
