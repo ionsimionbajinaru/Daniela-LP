@@ -10,7 +10,8 @@ const hero = document.querySelector('.hero');
 const heroTitle = document.querySelector('[data-animate-title]');
 const stickyMobileCta = document.querySelector('.sticky-mobile-cta');
 const parallaxItems = document.querySelectorAll('[data-parallax]');
-const tiltCards = document.querySelectorAll('.lux-card, .program-panel, .final-cta, .transform-card, .results-group');
+const tiltCards = document.querySelectorAll('.lux-card, .program-panel, .final-cta, .transform-card, .bonus-card, .student-result-card, .review-frame');
+const visualPlaceholderImages = document.querySelectorAll('[data-visual-placeholder]');
 const telegramRedirectUrl = waitlistDialog?.dataset.telegramUrl || 'https://t.me/daniela';
 // Pune aici URL-ul de Google Apps Script / webhook dacă nu vrei să îl setezi în HTML.
 // Exemplu Google Apps Script Web App: https://script.google.com/macros/s/AKfycb.../exec
@@ -75,6 +76,19 @@ const hasParallaxItems = parallaxItems.length > 0;
 let scrollFrameId = null;
 
 const prefersReducedMotion = () => reducedMotionQuery?.matches || false;
+
+visualPlaceholderImages.forEach((image) => {
+  const markImageAsMissing = () => {
+    image.classList.add('is-missing');
+    image.removeAttribute('src');
+  };
+
+  image.addEventListener('error', markImageAsMissing);
+
+  if (image.complete && image.naturalWidth === 0) {
+    markImageAsMissing();
+  }
+});
 
 const splitHeroTitle = () => {
   if (!heroTitle) return;
