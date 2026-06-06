@@ -66,7 +66,8 @@
         </div>
         <div class="hero-copy reveal">
           <p class="eyebrow">QUANTUM · lansări de cursuri · vânzări online</p>
-          <h1 data-animate-title>Mentorat în lansări de cursuri și vânzări online.</h1>
+          <h1 data-animate-title>QUANTUM</h1>
+          <p class="hero-promise">Mentorat în lansări de cursuri și vânzări online.</p>
           <p class="hero-subtitle">
             Înveți și creezi propriul sistem și strategie pentru a vinde online cu claritate, structură și rezultate pe care le poți repeta.
           </p>
@@ -85,21 +86,17 @@
 
         <div class="hero-visual reveal" data-parallax="0.08" aria-label="Portret cinematic Daniela Ionaș">
           <div class="portrait-frame">
-            <picture>
-              <source
-                type="image/svg+xml"
-                srcset="assets/hero-portrait-mobile.svg 720w, assets/hero-portrait.svg 1200w"
-                sizes="(max-width: 720px) 100vw, (max-width: 1080px) 44vw, 520px"
-              />
-              <img
-                src="assets/hero-portrait.svg"
-                width="1200"
-                height="1500"
-                sizes="(max-width: 720px) 100vw, (max-width: 1080px) 44vw, 520px"
-                fetchpriority="high"
-                alt="Portret editorial premium Daniela Ionaș pentru programul QUANTUM"
-              />
-            </picture>
+            <!-- Înlocuiește acest path cu fotografia finală de hero: assets/daniela-hero.jpg -->
+            <img
+              class="visual-image"
+              src="assets/daniela-hero.jpg"
+              width="1200"
+              height="1500"
+              sizes="(max-width: 720px) 100vw, (max-width: 1080px) 44vw, 520px"
+              fetchpriority="high"
+              alt="Portret editorial premium Daniela Ionaș pentru programul QUANTUM"
+              data-visual-placeholder
+            />
             <div class="portrait-glass">
               <span>Private waiting room</span>
               <strong>Telegram · Close Friends · bonusuri · prezentare închisă</strong>
@@ -113,11 +110,43 @@
           <p class="eyebrow">Ce primesc cei înscriși</p>
           <h2><span class="no-break">Waiting room-ul</span> îți deschide accesul înainte de lansarea publică.</h2>
         </div>
-        <div class="benefit-list premium-list">
-          <div class="benefit-row"><span>001</span><p>Acces la canal privat în Telegram unde Daniela postează podcasturi și materiale informative.</p></div>
-          <div class="benefit-row"><span>002</span><p>Acces în Close Friends cu content exclusiv, direct și pregătitor.</p></div>
-          <div class="benefit-row"><span>003</span><p>Posibilitatea de a te înscrie în QUANTUM cu cele mai bune condiții și bonusuri.</p></div>
-          <div class="benefit-row"><span>004</span><p>Detalii exclusive despre program și acces la prezentarea închisă.</p></div>
+        <div class="bonus-grid" aria-label="Bonusuri waiting room cu sloturi vizuale">
+          <article class="bonus-card">
+            <div class="bonus-media">
+              <!-- Înlocuiește path-ul cu mockup/icon final: assets/bonus-telegram.jpg -->
+              <img class="visual-image" src="assets/bonus-telegram.jpg" alt="Mockup premium pentru canalul Telegram privat" loading="lazy" data-visual-placeholder />
+            </div>
+            <span>001</span>
+            <h3>Canal Telegram privat</h3>
+            <p>Acces la canal privat în Telegram unde Daniela postează podcasturi și materiale informative.</p>
+          </article>
+          <article class="bonus-card">
+            <div class="bonus-media">
+              <!-- Înlocuiește path-ul cu mockup/icon final: assets/bonus-close-friends.jpg -->
+              <img class="visual-image" src="assets/bonus-close-friends.jpg" alt="Mockup premium pentru Close Friends" loading="lazy" data-visual-placeholder />
+            </div>
+            <span>002</span>
+            <h3>Close Friends</h3>
+            <p>Acces în Close Friends cu content exclusiv, direct și pregătitor.</p>
+          </article>
+          <article class="bonus-card">
+            <div class="bonus-media">
+              <!-- Înlocuiește path-ul cu mockup/icon final: assets/bonus-conditions.jpg -->
+              <img class="visual-image" src="assets/bonus-conditions.jpg" alt="Mockup premium pentru condiții și bonusuri prioritare" loading="lazy" data-visual-placeholder />
+            </div>
+            <span>003</span>
+            <h3>Condiții și bonusuri prioritare</h3>
+            <p>Posibilitatea de a te înscrie în QUANTUM cu cele mai bune condiții și bonusuri.</p>
+          </article>
+          <article class="bonus-card">
+            <div class="bonus-media">
+              <!-- Înlocuiește path-ul cu mockup/icon final: assets/bonus-presentation.jpg -->
+              <img class="visual-image" src="assets/bonus-presentation.jpg" alt="Mockup premium pentru prezentarea închisă" loading="lazy" data-visual-placeholder />
+            </div>
+            <span>004</span>
+            <h3>Prezentare închisă</h3>
+            <p>Detalii exclusive despre program și acces la prezentarea închisă.</p>
+          </article>
         </div>
       </section>
 
@@ -169,7 +198,9 @@
         </div>
         <div class="transform-grid">
           <article class="transform-card from-card">
+            <div class="transform-orb" aria-hidden="true"></div>
             <span class="card-label">Din asta</span>
+            <p class="transform-intro">Zgomot, presiune și decizii luate pe fugă.</p>
             <ul>
               <li>Postezi constant, dar pagina nu crește și nici vânzările.</li>
               <li>Faci conținut haotic, de pe o zi pe alta, care îți mănâncă timp și energie.</li>
@@ -179,7 +210,9 @@
             </ul>
           </article>
           <article class="transform-card to-card">
+            <div class="transform-orb" aria-hidden="true"></div>
             <span class="card-label">La asta</span>
+            <p class="transform-intro">Claritate premium, ritm și sistem repetabil.</p>
             <ul>
               <li>Vinzi constant, lună de lună, nu din când în când.</li>
               <li>Ai un sistem clar: știi exact ce postezi, când și de ce.</li>
@@ -194,8 +227,9 @@
       <section class="section-shell mentor-section reveal line-reveal" id="daniela">
         <div class="mentor-visual" data-parallax="0.04">
           <div class="photo-placeholder editorial-photo">
-            <img src="assets/hero-portrait.svg" alt="Placeholder editorial pentru fotografia Danielei Ionaș" />
-            <span>Daniela Ionaș</span>
+            <!-- Înlocuiește acest path cu fotografia finală de autoritate: assets/daniela-about.jpg -->
+            <img class="visual-image" src="assets/daniela-about.jpg" alt="Fotografie editorială Daniela Ionaș" loading="lazy" data-visual-placeholder />
+            <span>Daniela Ionaș · founder QUANTUM</span>
           </div>
         </div>
         <div class="mentor-copy">
@@ -204,10 +238,11 @@
           <p>
             Am testat zeci de strategii și instrumente, am făcut lansări pe public restrâns, lansări fără investiții în reclame și chiar o lansare de 170.000€ cu un bebe de 2 luni în brațe. Lansări în perioade de criză, inflație și război.
           </p>
-          <div class="mentor-highlights">
-            <span>Metodă testată personal</span>
-            <span>Confirmată de 500+ elevi</span>
-            <span>Instagram-first</span>
+          <div class="mentor-highlights authority-highlights" aria-label="Repere Daniela Ionaș">
+            <span><strong>850.000€</strong> generați</span>
+            <span><strong>500+</strong> elevi</span>
+            <span><strong>5 ani</strong> experiență</span>
+            <span><strong>170.000€</strong> lansare</span>
           </div>
         </div>
       </section>
@@ -217,62 +252,117 @@
           <p class="eyebrow">Câteva dintre rezultate</p>
           <h2 id="socialProofTitle">Rezultate concrete din lansări și monetizare online.</h2>
         </div>
-        <div class="results-layout">
-          <article class="results-group">
-            <span class="card-label">Începători de la 0 · producător digital</span>
-            <div class="result-list">
-              <p><strong>Sorina Alexandru</strong><span>23.000€</span></p>
-              <p><strong>Nicoleta Tabac</strong><span>4.000€</span></p>
-              <p><strong>Lera</strong><span>5.000€</span></p>
-              <p><strong>Cristina Cîrnat</strong><span>8.800€</span></p>
+        <div class="student-results-grid" aria-label="Rezultate elevi QUANTUM">
+          <article class="student-result-card">
+            <div class="student-photo">
+              <!-- Înlocuiește path-ul cu fotografia elevei: assets/student-sorina.jpg -->
+              <img class="visual-image" src="assets/student-sorina.jpg" alt="Sorina Alexandru" loading="lazy" data-visual-placeholder />
+            </div>
+            <div class="student-card-copy">
+              <span class="student-niche">Producător digital</span>
+              <h3>Sorina Alexandru</h3>
+              <strong class="student-amount">23.000€</strong>
+              <p>„Am trecut de la idei la o lansare construită cu structură.”</p>
             </div>
           </article>
-          <article class="results-group featured-results">
-            <span class="card-label">Experți care au monetizat cunoștințele</span>
-            <div class="expert-results-grid" aria-label="Experți, sume monetizate și nișe">
-              <article class="expert-result-card">
-                <strong>Anca Gaftoneanu</strong>
-                <div class="expert-result-meta">
-                  <span class="expert-result-amount">7.450€</span>
-                  <span class="expert-result-niche">Nails</span>
-                </div>
-              </article>
-              <article class="expert-result-card">
-                <strong>Alexandra Radomir</strong>
-                <div class="expert-result-meta">
-                  <span class="expert-result-amount">4.500€</span>
-                  <span class="expert-result-niche">PMU</span>
-                </div>
-              </article>
-              <article class="expert-result-card">
-                <strong>Oana Vedinaș</strong>
-                <div class="expert-result-meta">
-                  <span class="expert-result-amount">15.320€</span>
-                  <span class="expert-result-niche">Photo business</span>
-                </div>
-              </article>
-              <article class="expert-result-card">
-                <strong>Daniela Danoi</strong>
-                <div class="expert-result-meta">
-                  <span class="expert-result-amount">2.600€</span>
-                  <span class="expert-result-niche">Numerologie</span>
-                </div>
-              </article>
-              <article class="expert-result-card">
-                <strong>Daniela Palega</strong>
-                <div class="expert-result-meta">
-                  <span class="expert-result-amount">19.000€</span>
-                  <span class="expert-result-niche">Pediatrie / reeducare alimentară</span>
-                </div>
-              </article>
-              <article class="expert-result-card">
-                <strong>Loredana Covaci</strong>
-                <div class="expert-result-meta">
-                  <span class="expert-result-amount">14.200€</span>
-                  <span class="expert-result-niche">Energie feminină</span>
-                </div>
-              </article>
+          <article class="student-result-card">
+            <div class="student-photo">
+              <!-- Înlocuiește path-ul cu fotografia elevei: assets/student-nicoleta.jpg -->
+              <img class="visual-image" src="assets/student-nicoleta.jpg" alt="Nicoleta Tabac" loading="lazy" data-visual-placeholder />
             </div>
+            <div class="student-card-copy">
+              <span class="student-niche">Producător digital</span>
+              <h3>Nicoleta Tabac</h3>
+              <strong class="student-amount">4.000€</strong>
+              <p>„Am înțeles ce să comunic și cum să cer vânzarea.”</p>
+            </div>
+          </article>
+          <article class="student-result-card">
+            <div class="student-photo">
+              <!-- Înlocuiește path-ul cu fotografia elevei: assets/student-cristina.jpg -->
+              <img class="visual-image" src="assets/student-cristina.jpg" alt="Cristina Cîrnat" loading="lazy" data-visual-placeholder />
+            </div>
+            <div class="student-card-copy">
+              <span class="student-niche">Producător digital / Etsy</span>
+              <h3>Cristina Cîrnat</h3>
+              <strong class="student-amount">8.800€</strong>
+              <p>„Mi-am transformat expertiza într-un rezultat măsurabil.”</p>
+            </div>
+          </article>
+          <article class="student-result-card">
+            <div class="student-photo">
+              <!-- Înlocuiește path-ul cu fotografia elevei: assets/student-alexandra.jpg -->
+              <img class="visual-image" src="assets/student-alexandra.jpg" alt="Alexandra Radomir" loading="lazy" data-visual-placeholder />
+            </div>
+            <div class="student-card-copy">
+              <span class="student-niche">PMU</span>
+              <h3>Alexandra Radomir</h3>
+              <strong class="student-amount">4.500€</strong>
+              <p>„Am vândut mai clar, fără să par agresivă.”</p>
+            </div>
+          </article>
+          <article class="student-result-card">
+            <div class="student-photo">
+              <!-- Înlocuiește path-ul cu fotografia elevei: assets/student-oana.jpg -->
+              <img class="visual-image" src="assets/student-oana.jpg" alt="Oana Vedinaș" loading="lazy" data-visual-placeholder />
+            </div>
+            <div class="student-card-copy">
+              <span class="student-niche">Photo business</span>
+              <h3>Oana Vedinaș</h3>
+              <strong class="student-amount">15.320€</strong>
+              <p>„Mi-am poziționat oferta și am creat cerere în jurul ei.”</p>
+            </div>
+          </article>
+          <article class="student-result-card">
+            <div class="student-photo">
+              <!-- Înlocuiește path-ul cu fotografia elevei: assets/student-daniela-palega.jpg -->
+              <img class="visual-image" src="assets/student-daniela-palega.jpg" alt="Daniela Palega" loading="lazy" data-visual-placeholder />
+            </div>
+            <div class="student-card-copy">
+              <span class="student-niche">Pediatrie / reeducare alimentară</span>
+              <h3>Daniela Palega</h3>
+              <strong class="student-amount">19.000€</strong>
+              <p>„Am construit o lansare coerentă pentru o nișă sensibilă.”</p>
+            </div>
+          </article>
+          <article class="student-result-card">
+            <div class="student-photo">
+              <!-- Înlocuiește path-ul cu fotografia elevei: assets/student-loredana.jpg -->
+              <img class="visual-image" src="assets/student-loredana.jpg" alt="Loredana Covaci" loading="lazy" data-visual-placeholder />
+            </div>
+            <div class="student-card-copy">
+              <span class="student-niche">Energie feminină</span>
+              <h3>Loredana Covaci</h3>
+              <strong class="student-amount">14.200€</strong>
+              <p>„Am adus premium în mesaj, ofertă și procesul de vânzare.”</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="review-frame-grid" aria-label="Recenzii vizuale compacte">
+          <article class="review-frame">
+            <div class="review-avatar">
+              <!-- Înlocuiește path-ul cu review/avatar final: assets/review-1.jpg -->
+              <img class="visual-image" src="assets/review-1.jpg" alt="Review elevă QUANTUM" loading="lazy" data-visual-placeholder />
+            </div>
+            <blockquote>„Am simțit că fiecare pas are logică și direcție.”</blockquote>
+            <div><strong>Sorina</strong><span>23.000€ rezultat</span></div>
+          </article>
+          <article class="review-frame">
+            <div class="review-avatar">
+              <!-- Înlocuiește path-ul cu review/avatar final: assets/review-2.jpg -->
+              <img class="visual-image" src="assets/review-2.jpg" alt="Review elevă QUANTUM" loading="lazy" data-visual-placeholder />
+            </div>
+            <blockquote>„Nu a fost doar conținut, ci strategie de vânzare.”</blockquote>
+            <div><strong>Oana</strong><span>15.320€ rezultat</span></div>
+          </article>
+          <article class="review-frame">
+            <div class="review-avatar">
+              <!-- Înlocuiește path-ul cu review/avatar final: assets/review-3.jpg -->
+              <img class="visual-image" src="assets/review-3.jpg" alt="Review elevă QUANTUM" loading="lazy" data-visual-placeholder />
+            </div>
+            <blockquote>„Mi-a dat curaj să vând la nivelul expertizei mele.”</blockquote>
+            <div><strong>Loredana</strong><span>14.200€ rezultat</span></div>
           </article>
         </div>
       </section>
