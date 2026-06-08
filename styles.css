@@ -2429,10 +2429,14 @@ select {
   text-transform: uppercase;
 }
 
-.bonus-grid {
+.bonus-grid,
+.bonus-stack {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
   gap: 1rem;
+}
+
+.bonus-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
 }
 
 .bonus-card,
@@ -2671,10 +2675,6 @@ select {
 }
 
 @media (min-width: 860px) {
-  .bonus-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .student-results-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -2682,6 +2682,61 @@ select {
   .student-result-card:nth-child(1),
   .student-result-card:nth-child(6) {
     grid-column: span 2;
+  }
+}
+
+@media (min-width: 901px) {
+  .bonus-grid {
+    grid-template-columns: minmax(0, 1.55fr) minmax(18rem, 0.85fr);
+    align-items: start;
+    gap: clamp(1rem, 2vw, 1.4rem);
+  }
+
+  .bonus-stack {
+    grid-column: 2;
+    align-self: start;
+    gap: clamp(1rem, 2vw, 1.4rem);
+  }
+
+  .bonus-card {
+    align-self: start;
+  }
+
+  .bonus-card--featured {
+    position: sticky;
+    top: clamp(90px, 10vh, 130px);
+    grid-column: 1;
+    gap: clamp(0.9rem, 1.6vw, 1.25rem);
+    padding: clamp(1.05rem, 1.6vw, 1.35rem);
+  }
+
+  .bonus-stack .bonus-card {
+    gap: 0.72rem;
+    padding: 0.9rem;
+  }
+
+  .bonus-stack .bonus-media {
+    min-height: clamp(8.2rem, 11vw, 10rem);
+  }
+
+  .bonus-stack .bonus-card h3 {
+    font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  }
+
+  .bonus-stack .bonus-card p {
+    font-size: 0.94rem;
+    line-height: 1.48;
+  }
+}
+
+@media (max-width: 900px) {
+  .bonus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bonus-card--featured {
+    position: relative;
+    top: auto;
   }
 }
 
@@ -2734,7 +2789,8 @@ select {
 
   .student-results-grid,
   .review-frame-grid,
-  .bonus-grid {
+  .bonus-grid,
+  .bonus-stack {
     gap: 0.85rem;
   }
 
@@ -2885,13 +2941,33 @@ body {
     linear-gradient(145deg, rgba(24, 25, 27, 0.94), rgba(12, 13, 14, 0.96));
 }
 
-.bonus-card:first-child {
+.bonus-card--featured {
   border-color: rgba(215, 189, 134, 0.42);
   background:
     radial-gradient(circle at 88% 6%, rgba(215, 189, 134, 0.18), transparent 11rem),
     radial-gradient(circle at 8% 100%, rgba(85, 11, 20, 0.28), transparent 12rem),
     linear-gradient(145deg, rgba(28, 27, 25, 0.97), rgba(12, 13, 14, 0.96));
   box-shadow: 0 22px 80px rgba(0, 0, 0, 0.32), 0 0 40px rgba(215, 189, 134, 0.08);
+}
+
+@media (min-width: 1040px) {
+  .bonus-card--featured {
+    grid-template-columns: minmax(14rem, 0.9fr) minmax(0, 1.1fr);
+    column-gap: clamp(1rem, 2vw, 1.55rem);
+  }
+
+  .bonus-card--featured .bonus-media {
+    grid-row: 1 / span 4;
+    min-height: clamp(22rem, 34vw, 29rem);
+    align-self: stretch;
+  }
+
+  .bonus-card--featured .bonus-index,
+  .bonus-card--featured h3,
+  .bonus-card--featured p,
+  .bonus-card--featured .telegram-list {
+    grid-column: 2;
+  }
 }
 
 .bonus-card .bonus-index,
@@ -3017,7 +3093,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .bonus-card:first-child {
+  .bonus-card--featured {
     gap: 0.85rem;
   }
 
