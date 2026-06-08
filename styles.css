@@ -2429,10 +2429,14 @@ select {
   text-transform: uppercase;
 }
 
-.bonus-grid {
+.bonus-grid,
+.bonus-stack {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
   gap: 1rem;
+}
+
+.bonus-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
 }
 
 .bonus-card,
@@ -2671,9 +2675,26 @@ select {
 }
 
 @media (min-width: 860px) {
+  .student-results-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .student-result-card:nth-child(1),
+  .student-result-card:nth-child(6) {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 901px) {
   .bonus-grid {
     grid-template-columns: minmax(0, 1.55fr) minmax(18rem, 0.85fr);
     align-items: start;
+    gap: clamp(1rem, 2vw, 1.4rem);
+  }
+
+  .bonus-stack {
+    grid-column: 2;
+    align-self: start;
     gap: clamp(1rem, 2vw, 1.4rem);
   }
 
@@ -2682,38 +2703,40 @@ select {
   }
 
   .bonus-card--featured {
+    position: sticky;
+    top: clamp(90px, 10vh, 130px);
     grid-column: 1;
-    grid-row: 1 / span 3;
     gap: clamp(0.9rem, 1.6vw, 1.25rem);
     padding: clamp(1.05rem, 1.6vw, 1.35rem);
   }
 
-  .bonus-card:not(.bonus-card--featured) {
-    grid-column: 2;
+  .bonus-stack .bonus-card {
     gap: 0.72rem;
     padding: 0.9rem;
   }
 
-  .bonus-card:not(.bonus-card--featured) .bonus-media {
+  .bonus-stack .bonus-media {
     min-height: clamp(8.2rem, 11vw, 10rem);
   }
 
-  .bonus-card:not(.bonus-card--featured) h3 {
+  .bonus-stack .bonus-card h3 {
     font-size: clamp(1.05rem, 1.35vw, 1.25rem);
   }
 
-  .bonus-card:not(.bonus-card--featured) p {
+  .bonus-stack .bonus-card p {
     font-size: 0.94rem;
     line-height: 1.48;
   }
+}
 
-  .student-results-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+@media (max-width: 900px) {
+  .bonus-grid {
+    grid-template-columns: 1fr;
   }
 
-  .student-result-card:nth-child(1),
-  .student-result-card:nth-child(6) {
-    grid-column: span 2;
+  .bonus-card--featured {
+    position: relative;
+    top: auto;
   }
 }
 
@@ -2766,7 +2789,8 @@ select {
 
   .student-results-grid,
   .review-frame-grid,
-  .bonus-grid {
+  .bonus-grid,
+  .bonus-stack {
     gap: 0.85rem;
   }
 
